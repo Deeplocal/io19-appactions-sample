@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<actions>
+
+<action intentName="actions.intent.ORDER_MENU_ITEM">
+    <fulfillment urlTemplate="smores://order{?item_name}">
+        <parameter-mapping intentParameter="menuItem.name" urlParameter="item_name" />
+    </fulfillment>
+    <parameter name="menuItem.name">
+        <!--<entity-set-reference entitySetId="smoresMenuItems" urlFilter="smores://order"/>-->
+        <entity-set-reference entitySetId="smoresMenuItems" />
+    </parameter>
+</action>
+
+<entity-set entitySetId="smoresMenuItems">
+    <entity identifier="GFC_M_DCH_LT_Q" name="dark chocolate smore with a gluten free cracker"/>
+    <entity identifier="C_VM_DCH_LT_Q" name="dark chocolate smore vanilla marshmallow low toasted"/>
+    <entity identifier="C_VM_DCH_LIT_Q" name="dark chocolate vanilla marshmallow light toasted"/>
+    <entity identifier="HGC_M_CH_MT_Q" name="smore with a honey graham cracker medium toasted"/>
+    <entity identifier="CC_M_CH_MT_Q" name="smore with a chocolate cracker medium toasted"/>
+    <entity identifier="C_M_OCH_T_Q" name="oreo smore"/>
+    <entity identifier="HGC_VM_MCH_T_Q" name="milk chocolate with a honey graham cracker and a vanilla marshmallow"/>
+    <entity identifier="HGC_M_MCH_LT_Q" name="milk chocolate with a honey graham cracker light toasted"/>
+    <entity identifier="CC_VM_MCH_T_Q" name="milk chocolate with a chocolate cracker and a vanilla marshmallow"/>
+    <entity identifier="CC_M_MCH_T_Q" name="milk chocolate with a chocolate cracker"/>
+    <!--<entity identifier="usual" name="usual smore"/>
+    <entity identifier="usual" name="my usual smore"/>
+    <entity identifier="usual" name="the usual"/>-->
+    <entity identifier="usual" name="usual smore" alternateName="@array/usual_smore_synonyms" />
+</entity-set>
+
+<action intentName="actions.intent.GET_ORDER">
+    <fulfillment fulfillmentMode="actions.fulfillment.SLICE" urlTemplate="content://com.deeplocal.smores/last-order" />
+</action>
+
+</actions>

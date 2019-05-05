@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.deeplocal.smores">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/smores_icon_sm"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/smores_icon_sm"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/SplashTheme"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <intent-filter android:label="@string/default_order_http">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="smores"
+                    android:host="order" />
+            </intent-filter>
+
+            <intent-filter android:label="@string/default_order_example">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="smores"
+                    android:host="last-order" />
+            </intent-filter>
+
+        </activity>
+
+        <meta-data android:name="com.google.android.actions"
+            android:resource="@xml/actions" />
+
+        <provider android:name="SmoresSliceProvider"
+            android:authorities="com.deeplocal.smores"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.app.slice.category.SLICE" />
+            </intent-filter>
+        </provider>
+
+        <receiver android:name=".SliceBroadcastReceiver"></receiver>
+
+    </application>
+
+</manifest>

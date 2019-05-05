@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Smores</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="default_order_http">Default Order Http Template</string>
+    <string name="default_order_example">Default Order Example Template</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="order_the_usual">Say \"Order the Usual from S\'mores App\"</string>
+    <string-array name="usual_smore_synonyms">
+        <item>usual smore</item>
+        <item>the usual</item>
+        <item>my usual</item>
+        <item>my usual smore</item>
+    </string-array>
+</resources>
